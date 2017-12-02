@@ -1,0 +1,23 @@
+use alienfile;
+
+#our $VERSION = 0.001_000;
+ 
+plugin 'PkgConfig' => (
+    pkg_name =>'libpluto',
+    minimum_version => '0.11.4',
+);
+ 
+share {
+    plugin Download => (
+        url => 'https://wbraswell.github.io/pluto-mirror/',  # GitHub mirror server
+        filter => qr/^pluto-.*\.tar\.gz$/,
+    );
+    plugin Extract => 'tar.gz';
+    plugin 'Build::Autoconf' => ();
+    build [
+        '%{configure}',
+        '%{gmake}',
+        '%{gmake} test',
+        '%{gmake} install',
+    ];
+};

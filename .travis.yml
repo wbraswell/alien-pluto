@@ -1,0 +1,73 @@
+language: perl
+# v0.001_000
+
+perl:
+    - "5.8"
+    - "5.10"
+    - "5.12"
+    - "5.14"
+    - "5.16"
+    - "5.18"
+    - "5.20"
+    - "5.22"
+    - "5.24"
+    - "5.26"
+    - "blead"  # built using Travis-CI Helper
+
+# [ BEGIN Travis-CI Helper ]
+matrix:
+    allow_failures:
+        - perl: "blead"
+before_install:
+    - git clone git://github.com/travis-perl/helpers ~/travis-perl-helpers
+    - source ~/travis-perl-helpers/init
+    - build-perl
+    - perl -V
+
+# NEED UPGRADE: use build-dist instead of cpanm calls below?
+#    - build-dist
+#    - cd $BUILD_DIR             # $BUILD_DIR is set by the build-dist command
+# [ END Travis-CI Helper ]
+
+install:
+    - cpanm --verbose --installdeps .
+
+install:
+    # begin Pluto PolyCC                 # "system" install via tarball here vs "share" install via CPAN Alien::Pluto
+    - sudo apt-get install texinfo
+    #- wget https://github.com/wbraswell/pluto-mirror/raw/master/backup/pluto-0.11.4.tar.gz  # prefer official repo below
+    - wget https://github.com/bondhugula/pluto/files/737550/pluto-0.11.4.tar.gz
+    - tar -xzvf pluto-0.11.4.tar.gz
+    - cd pluto-0.11.4/
+    - ./configure
+    - make
+    - make test
+    - sudo make install
+    - cd ..
+    # end Pluto PolyCC
+
+script:
+    - perl Makefile.PL
+    - make
+    - make test
+    - make install
+    - perl -e 'use Alien::Pluto; use Env qw(@PATH); unshift @PATH, Alien::Pluto->bin_dir(); print `pluto --version`, "\n"; print `cloog --version`, "\n"; print `candl --version`, "\n";'
+
+notifications:
+  irc:
+    channels:
+        - "irc.perl.org#perl11"
+    on_success: always
+    on_failure: always
+    # to enable skip_join, in IRC channel first execute `/mode -n`
+    skip_join: true
+    template:
+        - "Alien::Pluto build %{result}. %{author} says '%{commit_message}'"
+        - "%{build_url} %{compare_url}"
+
+env:
+    global:
+        - AUTHOR_TESTING=0
+    matrix:
+        - ALIEN_INSTALL_TYPE=share
+        - ALIEN_INSTALL_TYPE=system
