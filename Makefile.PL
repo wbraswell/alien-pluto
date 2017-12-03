@@ -34,7 +34,7 @@ WriteMakefile($abmm->mm_args(
 
     CONFIGURE_REQUIRES => {
         'IO::Socket::SSL'       => '2.043',
-        'Alien::Build'          => '0.66',  # provides Alien::Build::MM
+        'Alien::Build'          => '1.32',  # provides Alien::Build::MM
         %{$configure_requires_windows}
     },
 

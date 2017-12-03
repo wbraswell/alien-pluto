@@ -47,7 +47,7 @@
       },
       "configure" : {
          "requires" : {
-            "Alien::Build" : "0.66",
+            "Alien::Build" : "1.32",
             "Alien::Build::MM" : "0.25",
             "IO::Socket::SSL" : "2.043"
          }
