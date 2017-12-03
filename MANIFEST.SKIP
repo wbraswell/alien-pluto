@@ -1,5 +1,5 @@
 # [[[ EXCLUDE ALL GITHUB, UNUSED, AND AUTOMATICALLY-GENERATED FILES FROM CPAN ]]]
-# v0.001_000
+# v0.002_000
 # [ GitHub & Travis-CI & AppVeyor ]
 ^\.git
 ^\.gitignore$
@@ -11,7 +11,7 @@
 ^_share
 
 # [ CPAN Build & Distribution ]
-# NEED UPDATE, CORRELATION #aj000: list of CPAN files & directories to delete/exclude in Makefile.PL, .gitignore, and MANIFEST.SKIP
+# NEED UPDATE, CORRELATION #ap000: list of CPAN files & directories to delete/exclude in Makefile.PL, .gitignore, and MANIFEST.SKIP
 # MANIFEST.SKIP is not auto-generated, but should not be distributed to end users
 ^MANIFEST\.SKIP$
 # MANIFEST is needed by CPAN, do not exclude
@@ -34,4 +34,4 @@ swp$
 
 # [ Archives ]
 ^backup
-^Alien-Pluto-
+^Alien-PCRE2-

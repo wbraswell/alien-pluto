@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-our $VERSION = 0.001_000;
+our $VERSION = 0.018_000;
 
 use ExtUtils::MakeMaker;
 use Alien::Build::MM;
@@ -25,16 +25,17 @@ if ( $OSNAME eq 'MSWin32' ) {
 my $abmm = Alien::Build::MM->new;
 
 WriteMakefile($abmm->mm_args(
-    NAME         => 'Alien::Pluto',
-    DISTNAME     => 'Alien-Pluto',
-    ABSTRACT     => 'Find Or Download/Build/Install libpluto In Pluto',
-    VERSION_FROM => 'lib/Alien/Pluto.pm',
+    NAME         => 'Alien::PCRE2',
+    DISTNAME     => 'Alien-PCRE2',
+    ABSTRACT     => 'Find Or Download/Build/Install libpcre2 In PCRE2',
+    VERSION_FROM => 'lib/Alien/PCRE2.pm',
     AUTHOR           => 'Will Braswell <wbraswell@cpan.org>',
     LICENSE          => 'perl_5',
+#    EXE_FILES        => ['bin/pcre2-config', 'bin/pcre2grep', 'bin/pcre2test'],  # error, no rule to make target 'bin/pcre2grep'
 
     CONFIGURE_REQUIRES => {
         'IO::Socket::SSL'       => '2.043',
-        'Alien::Build'          => '1.32',  # provides Alien::Build::MM
+        'Alien::Build'          => '0.66',  # provides Alien::Build::MM
         %{$configure_requires_windows}
     },
 
@@ -49,20 +50,20 @@ WriteMakefile($abmm->mm_args(
         },
 
         release_status => 'stable',
-        keywords       => [qw(alien pluto polycc candl cloog orio compiler parallel parallelization)],
-        description    => 'Pluto PolyCC is a parallelizing compiler suite, written in C, compiled and installed via Alien',
+        keywords       => [qw(alien pcre pcre2 regex regularexpression)],
+        description    => 'PCRE2 is the new Perl Compatible Regular Expression engine, written in C, compiled and installed via Alien',
         resources => {
             license    => ['http://dev.perl.org/licenses/'],
-            homepage   => 'http://pluto-compiler.sourceforge.net/',
-            bugtracker => { web => 'http://rt.cpan.org/Public/Dist/Display.html?Name=Alien-Pluto' },
+            homepage   => 'http://www.pcre.org',
+            bugtracker => { web => 'http://rt.cpan.org/Public/Dist/Display.html?Name=Alien-PCRE2' },
             repository => {
                 type => 'git',
-                url  => 'git://github.com/wbraswell/alien-pluto.git',
-                web  => 'https://github.com/wbraswell/alien-pluto',
+                url  => 'git://github.com/wbraswell/alien-pcre2.git',
+                web  => 'https://github.com/wbraswell/alien-pcre2',
             },
             x_IRC         => "irc://irc.perl.org/#native",
-            x_mailinglist => "http://groups.google.com/group/pluto-development",
-            x_wiki        => "https://en.wikipedia.org/wiki/Pluto_(disambiguation)",
+            x_mailinglist => "https://lists.exim.org/lurker/list/pcre-dev.html",
+            x_wiki        => "https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions",
         },
     },
 ));

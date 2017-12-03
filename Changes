@@ -1,6 +1,70 @@
-Revision history for Alien::Pluto.
+Revision history for Alien::PCRE2.
 
-0.001000 2017-12-01
+0.015000 2017-11-07
+
+	- Fix "Sorry, you may not have multiple connections.",
+		Replace Official Server With GitHub Mirror Server
+
+0.014000 2017-10-31 Codename Ovomorph
+
+    - HOLIDAY EDITION: Happy Halloween!
+    - Upgrade To PCRE2 v10.30 Official, Replace v10.30.837-DEV Unofficial
+
+0.013000 2017-07-22
+
+    - Windows, Properly Require Alien::Build & Alien::MSYS & Alien::gmake
+    - Require Test2::Suite v0.000072 For Test2::V0
+
+0.012000 2017-07-18
+
+    - Windows, Skip pcre-config Tests If sh Bourne Shell Not Found, Part 2
+
+0.011000 2017-07-18
+
+    - Windows, Skip pcre-config Tests If sh Bourne Shell Not Found
+
+0.010000 2017-07-16
+
+    - Require PCRE2 Minimum Version v10.30 During Build Time
+    - Test Suite, Skip cflags Test On system Install Type
+
+0.009000 2017-07-15
+
+    - Test Suite, Upgrade To Test::Alien
+    - Quality Assurance, Enable Debugging Output
+
+0.008000 2017-07-13
+
+    - Require Alien::Build v0.60 For Bug Fixes
+
+0.007000 2017-07-12
+
+    - Test Suite, Fix Errors On System Install Mode
+    - Test Suite, Enable XS Tests (Thanks plicease)
+
+0.006000 2017-07-02
+
+    - Build Process, Disable Shared Libs
+    - Test Suite, Enable `pcre2grep` Tests
+
+0.005000 2017-07-02
+
+    - Test Suite, Disable `pcre2grep` Tests, Do Not Force `make install`
+
+0.004000 2017-07-02
+
+    - Test Suite, Force `make install` Before `pcre2grep`
+
+0.003000 2017-07-01
+
+    - Test Suite Update
+    - MS Windows Support
+
+0.002000 2017-06-30
+
+    - Test Suite
+
+0.001000 2017-06-30
 
     - Initial Release!
     - Linux Support

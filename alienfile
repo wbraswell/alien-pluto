@@ -1,23 +1,35 @@
 use alienfile;
 
-#our $VERSION = 0.001_000;
+#our $VERSION = 0.021_000;
  
 plugin 'PkgConfig' => (
-    pkg_name =>'libpluto',
-    minimum_version => '0.11.4',
+    # NEED ANSWER: which should we be using below?
+    pkg_name =>'libpcre2-8',
+#    pkg_name =>'libpcre2-16',
+#    pkg_name =>'libpcre2-32',
+    minimum_version => '10.30',
 );
  
 share {
     plugin Download => (
-        url => 'https://wbraswell.github.io/pluto-mirror/',  # GitHub mirror server
-        filter => qr/^pluto-.*\.tar\.gz$/,
+#        url => 'ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/',  # ERROR: "Sorry, you may not have multiple connections."
+        url => 'https://wbraswell.github.io/pcre2-mirror/',  # GitHub mirror server
+
+        filter => qr/^pcre2-.*\.tar\.gz$/,
+
+#        version => qr/([0-9\.]+)/,  # error, prefers 10.21 over 10.23
+        version => qr/^pcre2-([0-9\.]+)/,
     );
     plugin Extract => 'tar.gz';
     plugin 'Build::Autoconf' => ();
     build [
-        '%{configure}',
+#        '%{configure} --enable-pcre2-16 --enable-pcre2-32 --disable-shared',
+        '%{configure} --enable-pcre2-16 --enable-pcre2-32 --disable-shared --enable-jit',  # NEED ANSWER: what hardware is not supported for JIT???
+#        '%{make}',
+#        '%{make} install',
+#        '%{dmake}',
+#        '%{dmake} install',
         '%{gmake}',
-        '%{gmake} test',
         '%{gmake} install',
     ];
 };

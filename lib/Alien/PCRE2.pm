@@ -1,8 +1,8 @@
 use strict;
 use warnings;
-package Alien::Pluto;
+package Alien::PCRE2;
 
-our $VERSION = '0.001000';
+our $VERSION = '0.015000';
 
 use base qw( Alien::Base );
 
@@ -16,21 +16,24 @@ __END__
 
 =head1 NAME
 
-Alien::Pluto - Find or download/build/install libpluto in the Pluto PolyCC compiler suite
+Alien::PCRE2 - Find or download/build/install libpcre2 in PCRE2, the new Perl Compatible Regular Expression engine
 
 =head1 SYNOPSIS
 
 From a Perl script
 
-    use Alien::Pluto;
-    use Env qw(@PATH);
+    use Alien::PCRE2;
 
-    unshift @PATH, Alien::Pluto->bin_dir();  # `pluto` command is now in your path
-    print Alien::Pluto->dist_dir();
+    use Env qw(@PATH);
+    unshift @PATH, Alien::PCRE2->bin_dir();
+    system 'pcre2-config';
+    system 'pcre2grep';
+
+    print Alien::PCRE2->dist_dir();
 
 =head1 DESCRIPTION
 
-This package can be used by other CPAN modules that require Pluto or libpluto.
+This package can be used by other CPAN modules that require PCRE2 or libpcre2.
 
 =head1 AUTHOR
 
