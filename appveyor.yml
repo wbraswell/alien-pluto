@@ -4,16 +4,16 @@ pull_requests:
   do_not_increment_build_number: false
 skip_tags: true
 clone_depth: 1
-clone_folder: C:\projects\alien-pcre2
+clone_folder: C:\projects\alien-pluto
 
 #environment:
 #    matrix:
 # DEV NOTE, CORRELATION #ap011: hackish code, setting ALIEN_INSTALL_TYPE=share causes Alien::gmake to fail to properly install in system mode with pre-installed C:\strawberry\c\bin\gmake.exe
-        # share test, compile PCRE2 from source
+        # share test, compile Pluto from source
 #        - ALIEN_INSTALL_TYPE: share
 
-# NEED FIX, CORRELATION #ap010: chocolatey does not support installation of libpcre2*
-       # system test, uses PCRE2 from chocolatey
+# NEED FIX, CORRELATION #ap010: chocolatey does not support installation of libpluto*
+       # system test, uses Pluto from chocolatey
 #        - ALIEN_INSTALL_TYPE: system
 
 # DEV NOTE: Windows OS, force manual install w/out test of IO::Socket::SSL, about 50% of the time it hangs on the test after "t/sysread_write.t ................. ok"
@@ -38,7 +38,7 @@ install:
 
     gmake install
 
-    perl -le "use Alien::PCRE2; use Env qw(@PATH); unshift @PATH, Alien::PCRE2->bin_dir(); print `sh pcre2-config --version`, \"\n\"; print `sh pcre2-config --cflags`, \"\n\";"
+    perl -le "use Alien::Pluto; use Env qw(@PATH); unshift @PATH, Alien::Pluto->bin_dir(); print `sh pluto --version`, \"\n\";"
 
 build: off
 test: off
