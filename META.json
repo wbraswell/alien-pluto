@@ -1,17 +1,21 @@
 {
-   "abstract" : "Find Or Download/Build/Install libpcre2 In PCRE2",
+   "abstract" : "Find Or Download/Build/Install libpluto In Pluto",
    "author" : [
       "Will Braswell <wbraswell@cpan.org>"
    ],
-   "description" : "PCRE2 is the new Perl Compatible Regular Expression engine, written in C, compiled and installed via Alien",
+   "description" : "Pluto PolyCC is a parallelizing compiler suite, written in C, compiled and installed via Alien",
    "dynamic_config" : 0,
    "generated_by" : "ExtUtils::MakeMaker version 7.0401, CPAN::Meta::Converter version 2.150005",
    "keywords" : [
       "alien",
-      "pcre",
-      "pcre2",
-      "regex",
-      "regularexpression"
+      "pluto",
+      "polycc",
+      "candl",
+      "cloog",
+      "orio",
+      "compiler",
+      "parallel",
+      "parallelization"
    ],
    "license" : [
       "perl_5"
@@ -20,7 +24,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "Alien-PCRE2",
+   "name" : "Alien-Pluto",
    "no_index" : {
       "directory" : [
          "t",
@@ -46,7 +50,7 @@
       },
       "configure" : {
          "requires" : {
-            "Alien::Build" : "0.66",
+            "Alien::Build" : "1.32",
             "Alien::Build::MM" : "0.25",
             "IO::Socket::SSL" : "2.043"
          }
@@ -61,22 +65,22 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Alien-PCRE2"
+         "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Alien-Pluto"
       },
-      "homepage" : "http://www.pcre.org",
+      "homepage" : "http://pluto-compiler.sourceforge.net/",
       "license" : [
          "http://dev.perl.org/licenses/"
       ],
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/wbraswell/alien-pcre2.git",
-         "web" : "https://github.com/wbraswell/alien-pcre2"
+         "url" : "git://github.com/wbraswell/alien-pluto.git",
+         "web" : "https://github.com/wbraswell/alien-pluto"
       },
       "x_IRC" : "irc://irc.perl.org/#native",
-      "x_mailinglist" : "https://lists.exim.org/lurker/list/pcre-dev.html",
-      "x_wiki" : "https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions"
+      "x_mailinglist" : "http://groups.google.com/group/pluto-development",
+      "x_wiki" : "https://en.wikipedia.org/wiki/Pluto_(disambiguation)"
    },
-   "version" : "0.015000",
+   "version" : "0.001000",
    "x_alienfile" : {
       "generated_by" : "Alien::Build::MM version 1.28",
       "requires" : {
