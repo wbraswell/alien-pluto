@@ -1,14 +1,12 @@
 language: perl
 # v0.012_000
 
-# NEED FIX, CORRELATION #ap010: old version of Travis build OS does not support apt-get installation of libpcre2* ???
+# NEED FIX, CORRELATION #ap010: old version of Travis build OS does not support apt-get installation of libpluto* ???
 #addons:
 #    apt:
 #        packages:
-#            - libpcre2-8-0
-#            - libpcre2-16-0
-#            - libpcre2-32-0
-#            - libpcre2-dev
+#            - libpluto
+#            - libpluto-dev
 
 perl:
     - "5.8"
@@ -49,7 +47,7 @@ script:
     - make
     - make test
     - make install
-    - perl -e 'use Alien::PCRE2; use Env qw(@PATH); unshift @PATH, Alien::PCRE2->bin_dir(); print `pcre2-config --version`, "\n"; print `pcre2-config --cflags`, "\n";'
+    - perl -e 'use Alien::Pluto; use Env qw(@PATH); unshift @PATH, Alien::Pluto->bin_dir(); print `pluto --version`, "\n";'
 
 notifications:
   irc:
@@ -60,7 +58,7 @@ notifications:
     # to enable skip_join, in IRC channel first execute `/mode -n`
     skip_join: true
     template:
-        - "Alien::PCRE2 build %{result}. %{author} says '%{commit_message}'"
+        - "Alien::Pluto build %{result}. %{author} says '%{commit_message}'"
         - "%{build_url} %{compare_url}"
 
 env:
@@ -68,5 +66,5 @@ env:
         - AUTHOR_TESTING=0
 #    matrix:
 #        - ALIEN_INSTALL_TYPE=share
-# NEED FIX, CORRELATION #ap010: old version of Travis build OS does not support apt-get installation of libpcre2* ???
+# NEED FIX, CORRELATION #ap010: old version of Travis build OS does not support apt-get installation of libpluto* ???
 #        - ALIEN_INSTALL_TYPE=system
