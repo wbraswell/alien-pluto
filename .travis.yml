@@ -1,5 +1,5 @@
 language: perl
-# v0.012_000
+# v0.002_000
 
 # NEED FIX, CORRELATION #ap010: old version of Travis build OS does not support apt-get installation of libpluto* ???
 #addons:
@@ -33,6 +33,8 @@ before_install:
     - source ~/travis-perl-helpers/init
     - build-perl
     - perl -V
+    - which make
+    - make -v
 
 # NEED UPGRADE: use build-dist instead of cpanm calls below?
 #    - build-dist
