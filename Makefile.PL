@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-our $VERSION = 0.001_000;
+our $VERSION = 0.002_000;
 
 use ExtUtils::MakeMaker;
 use Alien::Build::MM;
@@ -34,7 +34,8 @@ WriteMakefile($abmm->mm_args(
 
     CONFIGURE_REQUIRES => {
         'IO::Socket::SSL'       => '2.043',
-        'Alien::Build'          => '1.32',  # provides Alien::Build::MM
+        'Alien::Build'          => '1.32',   # provides Alien::Build::MM
+        'Alien::Texinfo'        => '0.002',  # fix error "makeinfo: command not found"
         %{$configure_requires_windows}
     },
 

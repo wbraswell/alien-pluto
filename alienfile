@@ -6,7 +6,13 @@ plugin 'PkgConfig' => (
     pkg_name =>'libpluto',
     minimum_version => '0.11.4',
 );
- 
+
+plugin 'Probe::CBuilder' => (
+  aliens => [ 'Alien::Texinfo' ],
+  program => "#include <libpluto.h>\nint main() { return 0; }\n",
+  lang => 'C++',  # mostly C, but some C++, according to GitHub
+);
+
 share {
     plugin Download => (
         url => 'https://wbraswell.github.io/pluto-mirror/',  # GitHub mirror server
@@ -15,6 +21,13 @@ share {
     );
     plugin Extract => 'tar.gz';
     plugin 'Build::Autoconf' => ();
+
+    plugin 'Build::SearchDep' => (
+        aliens => [ 'Alien::Texinfo' ],
+        public_I => 1,
+        public_l => 1,
+    );
+
     build [
         '%{configure}',
         '%{gmake}',
