@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-our $VERSION = 0.002_000;
+our $VERSION = 0.003_000;
 
 use ExtUtils::MakeMaker;
 use Alien::Build::MM;
@@ -35,7 +35,8 @@ WriteMakefile($abmm->mm_args(
     CONFIGURE_REQUIRES => {
         'IO::Socket::SSL'       => '2.043',
         'Alien::Build'          => '1.32',   # provides Alien::Build::MM
-        'Alien::Texinfo'        => '0.002',  # fix error "makeinfo: command not found"
+        'Alien::Texinfo'        => '0.002',  # Fix Candl Error, "makeinfo: command not found"
+        'Alien::bison'          => '0.19',   # Fix Clan  Error, "configure: error: bison not found"
         %{$configure_requires_windows}
     },
 

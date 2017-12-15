@@ -2,7 +2,13 @@ Revision history for Alien::Pluto.
 
     DON'T FORGET TO BUMP Alien::Texinfo TO v0.003!!!
 
+    - Test Suite, Command-Line Version Tests
+    - Include Alien::bison Dependency,
+        Fix Clan Error, "configure: error: bison not found"
+
 0.001000 2017-12-14
 
     - Initial Release!
+    - Include Alien::Texinfo Dependency,
+        Fix Candl Error, "makeinfo: command not found"
     - Linux Support (At Least)

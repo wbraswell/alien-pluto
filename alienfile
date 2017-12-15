@@ -1,6 +1,6 @@
 use alienfile;
 
-#our $VERSION = 0.001_000;
+#our $VERSION = 0.002_000;
  
 plugin 'Probe::CBuilder' => (
     # DEV NOTE: can not mix 'aliens' and 'cflags' or 'libs' options below;
@@ -24,7 +24,7 @@ share {
     plugin 'Build::Autoconf' => ();
 
     plugin 'Build::SearchDep' => (
-        aliens => [ 'Alien::Texinfo' ],
+        aliens => [qw( Alien::Texinfo Alien::bison )],
         public_I => 1,
         public_l => 1,
     );
