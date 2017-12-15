@@ -1,6 +1,6 @@
 Revision history for Alien::Pluto.
 
-    DON'T FORGET TO BUMP Alien::Texinfo TO v0.003!!!
+0.002000 2017-12-15
 
     - Test Suite, Command-Line Version Tests
     - Include Alien::bison Dependency,

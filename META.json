@@ -42,7 +42,7 @@
             "Alien::Build" : "1.32",
             "Alien::Build::MM" : "0.25",
             "Alien::Build::Plugin::Build::SearchDep" : "0.53",
-            "Alien::Texinfo" : "0.002",
+            "Alien::Texinfo" : "0.003",
             "Alien::bison" : "0.19",
             "ExtUtils::CBuilder" : "0",
             "IO::Socket::SSL" : "2.043"
@@ -73,7 +73,7 @@
       "x_mailinglist" : "http://groups.google.com/group/pluto-development",
       "x_wiki" : "https://en.wikipedia.org/wiki/Pluto_(disambiguation)"
    },
-   "version" : "0.001000",
+   "version" : "0.002000",
    "x_alienfile" : {
       "generated_by" : "Alien::Build::MM version 1.32",
       "requires" : {

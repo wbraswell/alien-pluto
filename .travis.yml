@@ -1,5 +1,5 @@
 language: perl
-# v0.002_000
+# v0.003_000
 
 # NEED FIX, CORRELATION #ap010: old version of Travis build OS does not support apt-get installation of libpluto* ???
 #addons:
@@ -66,7 +66,7 @@ notifications:
 env:
     global:
         - AUTHOR_TESTING=0
-#    matrix:
-#        - ALIEN_INSTALL_TYPE=share
+    matrix:
+        - ALIEN_INSTALL_TYPE=share
 # NEED FIX, CORRELATION #ap010: old version of Travis build OS does not support apt-get installation of libpluto* ???
-#        - ALIEN_INSTALL_TYPE=system
+        - ALIEN_INSTALL_TYPE=system
