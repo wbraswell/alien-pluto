@@ -2,15 +2,16 @@ use alienfile;
 
 #our $VERSION = 0.001_000;
  
-plugin 'PkgConfig' => (
-    pkg_name =>'libpluto',
-    minimum_version => '0.11.4',
-);
-
 plugin 'Probe::CBuilder' => (
-  aliens => [ 'Alien::Texinfo' ],
-  program => "#include <libpluto.h>\nint main() { return 0; }\n",
-  lang => 'C++',  # mostly C, but some C++, according to GitHub
+    # DEV NOTE: can not mix 'aliens' and 'cflags' or 'libs' options below;
+    # Alien::Texinfo provides a command-line utility `makeinfo`, not source and/or library files to be used during compilation
+#    aliens => [ 'Alien::Texinfo' ],  # incorrect
+    program => "#include <libpluto.h>\nint main() { return 0; }\n",
+    lang => 'C++',  # mostly C, but some C++, according to GitHub
+    # paths for pre-existing AKA system install
+    # NEED FIXES: remove hard-coded paths below; add Windows-compatible paths
+    cflags => '-I/usr/local/include/pluto/ -std=c++11',
+    libs => '-L/usr/local/lib/',
 );
 
 share {
