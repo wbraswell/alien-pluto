@@ -26,8 +26,7 @@ From a Perl script
 
     use Env qw(@PATH);
     unshift @PATH, Alien::Pluto->bin_dir();
-    system 'pluto';
-    system 'polycc';
+    system 'pluto -v';
 
     print Alien::Pluto->dist_dir();
 
