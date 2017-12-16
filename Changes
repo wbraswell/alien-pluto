@@ -1,15 +1,9 @@
 Revision history for Alien::Pluto.
 
-0.002000 2017-12-15
-
-
-
-    NEED BUMP TO A::Texinfo v0.005 WHICH DOES NOT YET EXIST???
-
-
-
+0.002000 2017-12-16
 
     - Test Suite, Command-Line Version Tests
+    - Require Alien::Texinfo v0.005
     - Include Alien::bison Dependency,
         Fix Clan Error, "configure: error: bison not found"
 
