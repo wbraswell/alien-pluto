@@ -1,5 +1,5 @@
 language: perl
-# v0.008_000
+# v0.009_000
 
 # NEED FIX, CORRELATION #ap010: old version of Travis build OS does not support apt-get installation of libpluto* ???
 #addons:
@@ -42,8 +42,8 @@ before_install:
 # [ END Travis-CI Helper ]
 
 install:
-#    - [ "$ALIEN_INSTALL_TYPE" = "system" ] && sudo apt-get install texinfo || echo "$ALIEN_INSTALL_TYPE != 'system', Skipping `sudo apt-get install texinfo`"
     - perl -e 'if ($ENV{ALIEN_INSTALL_TYPE} eq q{system}) { system qw(sudo apt-get install texinfo); }'
+    - perl -e 'if ($ENV{ALIEN_INSTALL_TYPE} eq q{system}) { system q{wget https://github.com/bondhugula/pluto/files/737550/pluto-0.11.4.tar.gz; tar -xzvf pluto-0.11.4.tar.gz; cd pluto-0.11.4/; ./configure; make; make test; sudo make install; cd .. }; }'
 #    - makeinfo --version  # causes failure for share installs, command does not yet exist
     - cpanm --verbose --installdeps .
 
