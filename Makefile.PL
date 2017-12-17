@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-our $VERSION = 0.006_000;
+our $VERSION = 0.007_000;
 
 use ExtUtils::MakeMaker;
 use Alien::Build::MM;
@@ -35,9 +35,10 @@ WriteMakefile($abmm->mm_args(
     CONFIGURE_REQUIRES => {
         'IO::Socket::SSL'       => '2.043',
         'Alien::Build'          => '1.32',   # provides Alien::Build::MM
-        # DEV NOTE, CORRELATION #ap020: must update Alien::Texinfo & Alien::bison versions in BOTH alienfile & Makefile.PL
+        # DEV NOTE, CORRELATION #ap020: must update Alien::Texinfo & Alien::bison & Alien::flex versions in BOTH alienfile & Makefile.PL
         'Alien::Texinfo'        => '0.005',  # Fix Candl Error, "makeinfo: command not found"
         'Alien::bison'          => '0.19',   # Fix Clan  Error, "configure: error: bison not found"
+        'Alien::flex'           => '0.12',   # Fix Clan  Error, "configure: error: flex not found"
         %{$configure_requires_windows}
     },
 
